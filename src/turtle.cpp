@@ -79,6 +79,7 @@ Stitch Key
  * 2: Feather stitch
  * 3: Blanket stitch
  * 4: Leaf & Vine Stitch
+ * 5: Square Zag Stitch
 */
 void Turtle::set_decor_stitch(int index)
 {
@@ -93,6 +94,7 @@ void Turtle::set_decor_stitch(int index)
  * 2: Feather stitch
  * 3: Blanket stitch
  * 4: Leaf & Vine Stitch
+ * 5: Square Zag Stitch
  *
  */
 void Turtle::decor_on(int index)
