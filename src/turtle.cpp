@@ -69,6 +69,7 @@ void Turtle::satinoff() {
  */
 void Turtle::pendown() {
     pen_is_down_ = true;
+    embPattern_addStitchAbs(emb_, position_.x_, position_.y_, 0, color_);
 }
 
 /** Puts the turtle's pen up.
@@ -79,11 +80,38 @@ void Turtle::penup() {
     pen_is_down_ = false;
 }
 
+/** Sets the state of the turtle's pen.
+ * If given a true input, puts the pen down.
+ * If given false, puts the pen up.
+*/
+void Turtle::setpen(bool down) {
+    if (down) {
+        pendown();
+        return;
+    }
+    penup();
+}
+
 /** Returns the Turtle's current position.
  * The position is returned as a Point object.
  */
 Point Turtle::position() {
     return position_;
+}
+
+/** Returns the Turtle's current direction.
+ *  The direction is returned as a Point object.
+*/
+Point Turtle::dir() {
+    return dir_;
+}
+
+/** Returns the state of the Turtle's pen.
+ *  If the pen is down, returns True.
+ *  Else, returns False. 
+*/
+bool Turtle::ispendown() {
+    return pen_is_down_;
 }
 
 // Functions for turning the Turtle
@@ -205,6 +233,30 @@ void Turtle::forward(const float dist) {
  */
 void Turtle::backward(const float dist) {
     move(dir_ * dist * -1);
+}
+
+/** Draws an arc from the Turtle's current position and direction.
+ *  If degrees is positive, the arc is drawn clockwise - 
+ *  if degrees is negative, then the arc is counterclockwise. 
+*/
+void Turtle::arc(const float radius, const float degrees) {
+    float radians = M_PI * degrees / 180;
+    float arc_len = abs(radians * radius);
+
+    int arc_sides = 2 + int(fmin(11+abs(radius)/6.0, 59.0)) * abs(degrees / 360);
+    float w = degrees / arc_sides;
+    float l = arc_len / arc_sides;
+    for (int i = 0; i < arc_sides; i++) {
+        forward(l);
+        turn(w);
+    }
+}
+/** Alias for a clockwise arc of 360 degrees.
+*/
+void Turtle::circle(const float radius) {
+    Point start = position_;
+    arc(radius, 360);
+    gotopoint(start);
 }
 
 // Functions for drawing text
@@ -372,21 +424,6 @@ void Turtle::rectangle(float w, float h) {
     right(90);
     forward(h);
     right(90);
-}
-
-
-void Turtle::circle(float radius) {
-    Point start = position_;
-    int steps = 2+int(fmin(11+abs(radius)/6.0, 59.0));
-    float w = 360.0 / steps;
-    float l = 2.0 * abs(radius) / steps;
-
-    for (int i=0; i < steps; ++i) {
-        forward(l);
-        turn(w);
-    }
-
-    gotopoint(start);
 }
 
 void Turtle::snowflake(float sidelength, int levels) {
