@@ -80,6 +80,7 @@ Stitch Key
  * 3: Blanket stitch
  * 4: Leaf & Vine Stitch
  * 5: Square Zag Stitch
+ * 6: Lightning Stitch
 */
 void Turtle::set_decor_stitch(int index)
 {
@@ -95,6 +96,7 @@ void Turtle::set_decor_stitch(int index)
  * 3: Blanket stitch
  * 4: Leaf & Vine Stitch
  * 5: Square Zag Stitch
+ * 6: Lightning Stitch
  *
  */
 void Turtle::decor_on(int index)
@@ -272,6 +274,9 @@ void Turtle::gotopoint(const Point &pos)
                     break;
                 case 5:
                     squareZag_stitch_to(pos);
+                    break;
+                case 6:
+                    lightning_stitch_to(pos);
                     break;
                 }
             }
@@ -597,6 +602,23 @@ void Turtle::squareZag_stitch_to(const Point &pos)
         stitch(dir_ * stepsize_ / 2);
         left(90);
     }
+    stitch_abs(pos);
+}
+
+void Turtle::lightning_stitch_to(const Point &pos)
+{
+    float total_length = (position_ - pos).length();
+    size_t num_stitches = abs(int(total_length / stepsize_ / 2));
+
+    for (size_t i = 0; i < num_stitches; ++i)
+    {
+        left(30);
+        stitch(dir_ * (stepsize_ * 1.73));
+        right(90);
+        stitch(dir_ * stepsize_);
+        left(60);
+    }
+
     stitch_abs(pos);
 }
 

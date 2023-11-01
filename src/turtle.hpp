@@ -55,6 +55,7 @@ private:
    void blanket_stitch_to(const Point &pos);
    void leafVine_stitch_to(const Point &pos);
    void squareZag_stitch_to(const Point &pos);
+   void lightning_stitch_to(const Point &pos);
    void satin_stitch_to(const Point &pos);
    void check_density(const Point &pos);
    void set_x(const float x);
