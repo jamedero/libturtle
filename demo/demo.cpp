@@ -37,15 +37,19 @@ void meetTurtle()
 {
   Turtle t;
   // t.satinon(0.3);
-  // t.decor_on(0);
+
   t.pendown();
-  t.decor_on(5);
-  // t.forward(20);
-  // t.decor_on(4);
-  // rect(t, 30, 30);
-  t.setStepSize(10);
+  t.forward(10);
+  // t.decor_on(5);
+  t.decor_on(6);
+  t.forward(20);
+  t.decor_off();
+  t.forward(10);
+  //  t.decor_on(4);
+  //  rect(t, 30, 30);
+
   // penta(t, 50);
-  t.forward(60);
+  // t.forward(60);
   t.end();
   t.save("demo.dst");
 }
