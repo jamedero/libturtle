@@ -1,6 +1,6 @@
 all: demo
 
-demo: demo.o
+demo: demo.o ../src/libturtle.a ../src/libpoint.a ../libembroidery/libembroidery.a
 	clang++ demo.o ../src/libturtle.a ../src/libpoint.a ../libembroidery/libembroidery.a -o demo
 
 demo.o: demo.cpp

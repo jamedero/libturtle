@@ -16,7 +16,10 @@ class Turtle {
     void satinoff();
     void pendown();
     void penup();
+    void setpen(bool isdown);
     Point position();
+    Point dir();
+    bool ispendown();
 
     void turntoward(const Point& pos);
     void turntoward(const float x, const float y);
@@ -32,6 +35,9 @@ class Turtle {
     void gotopoint(const float x, const float y);
     void forward(const float dist);
     void backward(const float dist);
+
+    void arc(const float radius, const float degrees);
+    void circle(const float radius);
 
     void displayMessage(std::string message, float scale);
 
@@ -52,7 +58,6 @@ class Turtle {
     void increment_x(const float x);
     void increment_y(const float y);
     // void rectangle(float w, float h);
-    // void circle(float radius);
     // void snowflake(float sidelength, int levels);
     // void flakeside(float sidelength, int levels);
     // void squareSpiral(int line);
