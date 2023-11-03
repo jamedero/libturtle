@@ -33,18 +33,37 @@ void penta(Turtle &t, float width)
   }
 }
 
+void octa(Turtle &t, float width)
+{
+
+  t.decor_on(0);
+  for (int i = 0; i < 8; i++)
+  {
+    if (i == 7)
+    {
+      t.decor_off();
+    }
+    else
+    {
+      t.set_decor_stitch(i);
+    }
+
+    t.forward(width);
+    t.left(45);
+  }
+}
+
 void meetTurtle()
 {
   Turtle t;
   // t.satinon(0.3);
 
   t.pendown();
-  t.forward(10);
-  // t.decor_on(5);
-  t.decor_on(6);
-  t.forward(20);
-  t.decor_off();
-  t.forward(10);
+  // t.forward(10);
+  //  t.decor_on(5);
+  //  t.decor_on(6);
+
+  octa(t, 30);
   //  t.decor_on(4);
   //  rect(t, 30, 30);
 
