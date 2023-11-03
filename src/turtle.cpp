@@ -73,6 +73,8 @@ void Turtle::satinoff()
 
 /*
 Sets the decorative stitch to be drawn with the turtle, does NOT turn it on though
+For first test would reccomend step size of 10 for highly visible stitches,
+    stepsize 2 is very small and it makes it hard to see the decorative stitches
 Stitch Key
  * 0: Arrow stitch
  * 1: ZigZag stitch
@@ -89,6 +91,10 @@ void Turtle::set_decor_stitch(int index)
 
 /**
  * Enables decorative stitches; sets stitch to stitch # passed in
+ *
+ * For first test would reccomend step size of 10 for highly visible stitches,
+    stepsize 2 is very small and it makes it hard to see the decorative stitches
+
  * Stitch Key
  * 0: Arrow stitch
  * 1: ZigZag stitch
