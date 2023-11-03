@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+
+import pyembroidery
+import sys
+
+if len(sys.argv) < 3: 
+    sys.exit("Usage: {} <inputfilename> <outputfilename>".format(sys.argv[0]))
+
+pyembroidery.write(pyembroidery.read(sys.argv[1]), sys.argv[2])
