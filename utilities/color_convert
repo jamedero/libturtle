@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import sys
+import svgwrite
+import xml.etree.ElementTree as ET
+
+file = sys.argv[1] # first command line argument
+stroke_color = sys.argv[2] # second command line argument
+
+tree = ET.parse(file) # parses the svg xml
+root = tree.getroot()
+
+for element in root.iter(): # goes through all the elements in the xml and switches the stroke color
+    if "stroke" in element.attrib:
+        element.attrib["stroke"] = stroke_color
+
+tree.write(file) # writes new xml out to file
