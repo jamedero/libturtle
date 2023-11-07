@@ -9,13 +9,13 @@ using namespace std;
 
 void rect(Turtle& t, float width, float height) {
   t.forward(width);
-  t.right(90);
-  t.forward(height);
-  t.right(90);
-  t.forward(width);
-  t.right(90);
-  t.forward(height);
-  t.right(90);
+  // t.right(90);
+  // t.forward(height);
+  // t.right(90);
+  // t.forward(width);
+  // t.right(90);
+  // t.forward(height);
+  // t.right(90);
 }
 
 
