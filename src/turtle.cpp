@@ -360,6 +360,44 @@ void Turtle::check_density(const Point& pos) {
     density_error_ |= (entry->second > DENSITY_ERROR_LIMIT);
 }
 
+// draws an X of fixed size at (x,y)
+void Turtle::drawX(int x, int y) {
+    right(45);
+    gotopoint(x,y);
+    
+    pendown();
+    forward(10);
+    penup();
+    left(45);
+    left(45);
+
+    gotopoint(x+9,y);
+    pendown();
+    backward(10);
+    penup();
+    right(45);
+}
+
+// given a list of coordinates on a 1x1 grid, stitch the cross stitches of fixed size
+void Turtle::createCrossStitchPattern(std::vector<std::pair<int, int>>& coordinates) {
+
+    for (std::pair<int, int>& coord : coordinates) {
+        coord.first *= 6;
+        coord.second *= 6;
+    }  
+
+    // draw a random stitch as a reference point
+    gotopoint(0,0);
+    pendown();
+    forward(5);
+    penup();
+
+    for (const auto& coord : coordinates) {
+        drawX(coord.first, coord.second);  // Draw the X at each coordinate
+    }
+
+}
+
 /* Disabled functions -- we could use these at some point, but they feel too
 high-level for providing to CS70
 
