@@ -35,6 +35,8 @@ class Turtle {
 
     void displayMessage(std::string message, float scale);
 
+   void createCrossStitchPattern(std::vector<std::pair<int, int>>& coordinates);
+
     void save(std::string fname);
     void end();
 
@@ -51,6 +53,7 @@ class Turtle {
     void set_y(const float y);
     void increment_x(const float x);
     void increment_y(const float y);
+    void drawX(int x, int y);
     // void rectangle(float w, float h);
     // void circle(float radius);
     // void snowflake(float sidelength, int levels);
