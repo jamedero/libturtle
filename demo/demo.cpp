@@ -18,26 +18,11 @@ void rect(Turtle& t, float width, float height) {
   t.right(90);
 }
 
-void poly(Turtle& t, float size, int sides) {
-
-  if (sides < 3){
-    std::cout << "Polygon  must be at least 3 sides";
-  } else{
-    for (int x = 0; x < sides; ++x){
-      t.forward(size);
-      float degree = 360.0 / sides;
-      t.left(degree);
-    }
-  }
-}
-
-
 void meetTurtle() {
   Turtle t;
   t.satinon(0.3);
   t.pendown();  
-  //rect(t, 20, 30);
-  poly(t, 20, 3);
+  rect(t, 20, 30);
   t.end();
   t.save("demo.dst");
 }
