@@ -18,7 +18,6 @@ void rect(Turtle& t, float width, float height) {
   t.right(90);
 }
 
-
 void meetTurtle() {
   Turtle t;
   t.satinon(0.3);

@@ -436,6 +436,19 @@ void Turtle::tree(int level) {
     }
 }
 
+void polygon(Turtle& t, float size, int sides) {
+
+  if (sides < 3){
+    std::cout << "Polygon  must be at least 3 sides";
+  } else{
+    for (int x = 0; x < sides; ++x){
+      t.forward(size);
+      float degree = 360.0 / sides;
+      t.left(degree);
+    }
+  }
+}
+
 void Turtle::svtree(float trunklength, int levels, float trunkwidth) {
     if (trunklength < 1 || levels <= 0) return;
     bool satin_was_on = satin_is_on_;
