@@ -25,7 +25,7 @@ void poly(Turtle& t, float size, int sides) {
   } else{
     for (int x = 0; x < sides; ++x){
       t.forward(size);
-      degree = 360.0 / sides;
+      float degree = 360.0 / sides;
       t.left(degree);
     }
   }
