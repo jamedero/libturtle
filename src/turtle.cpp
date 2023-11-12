@@ -122,7 +122,7 @@ void Turtle::setdir(const float x, const float y) {
     setdir(Point(x, y));
 }
 
-/** Turns the Turle `degreesccw` degrees. */
+/** Turns the Turtle `degreesccw` degrees. */
 void Turtle::turn(const float degreesccw) {
     float radcw = -degreesccw / 180.0 * 3.141592653589;
     dir_ = Point(cos(radcw) * dir_.x_ - sin(radcw) * dir_.y_,
@@ -205,6 +205,30 @@ void Turtle::forward(const float dist) {
  */
 void Turtle::backward(const float dist) {
     move(dir_ * dist * -1);
+}
+
+/** Rightward curve
+ * Curves the turtle to the right along a calculated path 
+ */
+void Turtle::rcurve(int degree, int len) {
+  //len is basically the step count 
+  float turnGradient = degree / len; 
+  for (int i=0;i<len;i++) {
+    turn(turnGradient);
+    move(dir_ * 1);
+  }
+}
+
+/** Leftward curve
+ * Curves the turtle to the right along a calculated path 
+ */
+void Turtle::lcurve(int degree, int len) {
+  //len is basically the step count 
+  float turnGradient = degree / len; 
+  for (int i=0;i<len;i++) {
+    turn(-turnGradient);
+    move(dir_ * 1);
+  }
 }
 
 // Functions for drawing text

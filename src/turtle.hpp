@@ -25,6 +25,8 @@ class Turtle {
     void turn(const float degreesccw);
     void right(float degreesccw);
     void left(float degreesccw);
+    void rcurve(int degree, int len);
+    void lcurve(int degree, int len);
 
     void move(const Point& delta);
     void move(const float x, const float y);
